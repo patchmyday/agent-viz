@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #080b14;
+  --bg-surface: #0d1117;
+  --bg-glass: rgba(13, 17, 23, 0.7);
+
+  --accent-cyan: #00d9ff;
+  --accent-magenta: #ff2d78;
+  --accent-purple: #7c3aed;
+  --accent-green: #00ff9f;
+
+  --text-primary: #e6edf3;
+  --text-muted: #8b949e;
+  --text-code: #79c0ff;
+
+  --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.4), 0 0 40px rgba(0, 217, 255, 0.2);
+  --glow-magenta: 0 0 20px rgba(255, 45, 120, 0.4);
+  --glow-green: 0 0 20px rgba(0, 255, 159, 0.4);
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Inter",
+    "Geist",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+code,
+.font-mono {
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    "Geist Mono",
+    monospace;
+}
+
+/* Node glow animations */
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: var(--glow-cyan); }
+  50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.7), 0 0 60px rgba(0, 217, 255, 0.4); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: var(--glow-green); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 159, 0.7), 0 0 60px rgba(0, 255, 159, 0.4); }
+}
+
+@keyframes shake-error {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Edge pulse animation */
+@keyframes edge-flow {
+  from { stroke-dashoffset: 20; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Gradient border rotation */
+@keyframes border-spin {
+  from { --border-angle: 0deg; }
+  to { --border-angle: 360deg; }
+}
+
+/* React Flow overrides */
+.react-flow__renderer {
+  background: transparent !important;
+}
+
+.react-flow__background {
+  display: none;
+}
+
+.react-flow__edge-path {
+  stroke: var(--accent-purple);
+}
+
+.react-flow__minimap {
+  background: var(--bg-surface) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 8px;
+}
+
+.react-flow__controls {
+  background: var(--bg-glass) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(12px);
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+  color: var(--text-muted) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(124, 58, 237, 0.2) !important;
+  color: var(--text-primary) !important;
+}

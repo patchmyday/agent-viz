@@ -1,0 +1,24 @@
+{
+  "name": "agent-viz",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real-time visualization of Claude Code agent orchestration",
+  "license": "MIT",
+  "bin": {
+    "agent-viz": "./bin/agent-viz.js"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0",
+    "typescript": "^5.8.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

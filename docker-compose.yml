@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:3001:3001"   # Bind to loopback only — this is a local dev tool
+    volumes:
+      - ~/.claude/projects:/data/claude-projects:ro   # JSONL files, read-only
+      - agent-viz-data:/data/db                        # Persistent SQLite storage
+    environment:
+      - CLAUDE_PROJECTS_DIR=/data/claude-projects
+      - DATA_DIR=/data/db
+      - CHOKIDAR_USEPOLLING=true   # Required: inotify doesn't cross Docker volume boundaries
+    # Drop all Linux capabilities — this server needs none
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  agent-viz-data:
